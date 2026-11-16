@@ -1,0 +1,2 @@
+# Optional graph builder and parity checker only. No training framework required.
+onnx>=1.17,<2

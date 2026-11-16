@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "little-tts"
-version = "0.3.0"
+version = "0.4.0"
 description = "A 4.65M-parameter English DDSP TTS trained on real human speech"
 readme = "README.md"
 authors = [{ name = "TuringLogic" }]

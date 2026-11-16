@@ -1,0 +1,20 @@
+{
+  "packages": {
+    "onnxruntime-gpu": "1.32.0",
+    "onnx": "1.23.2",
+    "numpy": "2.5.5",
+    "nvidia-cuda-runtime": "13.5.37",
+    "nvidia-cublas": "13.10.0.20",
+    "nvidia-cudnn-cu13": "9.28.1.4",
+    "nvidia-cufft": "12.5.0.14",
+    "dizione": "0.1.0"
+  },
+  "providers": [
+    "TensorrtExecutionProvider",
+    "CUDAExecutionProvider",
+    "CPUExecutionProvider"
+  ],
+  "pytorch_installed": false,
+  "thread_serialization_checked": true,
+  "queue_integration_checked": true
+}

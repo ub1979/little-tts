@@ -9,7 +9,7 @@ Bundled dizione Python source retains its Apache-2.0 licence at
 web/assets/LICENSE-DIZIONE. This English release contains no Urdu voice weights.
 The original upstream source and copyright notices are retained.
 Source code: Apache-2.0 (LICENSE and LICENSE-CODE).
-New inference.pt and onnx/model.onnx weights: CC BY-NC 4.0 (LICENSE-WEIGHTS), noncommercial use only.
+New inference.pt and all onnx/ model weights: CC BY-NC 4.0 (LICENSE-WEIGHTS), noncommercial use only.
 Model weights were trained from scratch, without upstream TTS weight initialization.
 Training data has separate CC BY 4.0 terms; see DATA_LICENSE.txt. The weights'
 noncommercial restriction does not relicense the dataset or upstream source.

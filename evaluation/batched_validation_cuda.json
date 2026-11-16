@@ -1,0 +1,161 @@
+{
+  "device": "cuda",
+  "precision": "float32",
+  "quantized": false,
+  "pytorch_imported": false,
+  "reference": "Released FP32 single-request ONNX, with identical externally supplied noise",
+  "comparisons": [
+    {
+      "voice": "92",
+      "text": "The morning sunlight streamed through the window, warming the quiet room.",
+      "speed": 1,
+      "pitch_shift": 0,
+      "pitch_range": 1,
+      "seconds": 4.245333333333333,
+      "same_durations": true,
+      "same_length": true,
+      "max_error_over_peak": 0.000296416983474046,
+      "rms_error_over_rms": 0.00016853750275913626
+    },
+    {
+      "voice": "6097",
+      "text": "Hello, welcome to Little TTS.",
+      "speed": 1.1,
+      "pitch_shift": 0,
+      "pitch_range": 1,
+      "seconds": 2.304,
+      "same_durations": true,
+      "same_length": true,
+      "max_error_over_peak": 0.0005146015319041908,
+      "rms_error_over_rms": 0.0002230313402833417
+    },
+    {
+      "voice": "92",
+      "text": "She had never seen the sea before, and for a long while she stood at the edge of the water without saying a word.",
+      "speed": 0.95,
+      "pitch_shift": 0,
+      "pitch_range": 1,
+      "seconds": 6.421333333333333,
+      "same_durations": true,
+      "same_length": true,
+      "max_error_over_peak": 0.0009250776492990553,
+      "rms_error_over_rms": 0.0004512849263846874
+    },
+    {
+      "voice": "6097",
+      "text": "After a long and difficult journey across the mountains, the travellers finally reached the small village, where they were welcomed with warm food, a place to sleep and many questions about the road behind them.",
+      "speed": 1,
+      "pitch_shift": 0,
+      "pitch_range": 1,
+      "seconds": 12.736,
+      "same_durations": true,
+      "same_length": true,
+      "max_error_over_peak": 0.0009883965831249952,
+      "rms_error_over_rms": 0.00037751326453872025
+    },
+    {
+      "voice": "6097",
+      "text": "The morning sunlight streamed through the window, warming the quiet room.",
+      "speed": 1.1,
+      "pitch_shift": 0,
+      "pitch_range": 1,
+      "seconds": 4.192,
+      "same_durations": true,
+      "same_length": true,
+      "max_error_over_peak": 0.0003742472326848656,
+      "rms_error_over_rms": 9.285312989959493e-05
+    },
+    {
+      "voice": "92",
+      "text": "Hello, welcome to Little TTS.",
+      "speed": 1,
+      "pitch_shift": 0,
+      "pitch_range": 1,
+      "seconds": 2.208,
+      "same_durations": true,
+      "same_length": true,
+      "max_error_over_peak": 0.0004647192545235157,
+      "rms_error_over_rms": 0.0002053892967524007
+    },
+    {
+      "voice": "6097",
+      "text": "She had never seen the sea before, and for a long while she stood at the edge of the water without saying a word.",
+      "speed": 1,
+      "pitch_shift": 0,
+      "pitch_range": 1,
+      "seconds": 6.709333333333333,
+      "same_durations": true,
+      "same_length": true,
+      "max_error_over_peak": 0.0010007548844441772,
+      "rms_error_over_rms": 0.0004007631214335561
+    },
+    {
+      "voice": "92",
+      "text": "After a long and difficult journey across the mountains, the travellers finally reached the small village, where they were welcomed with warm food, a place to sleep and many questions about the road behind them.",
+      "speed": 0.95,
+      "pitch_shift": 0,
+      "pitch_range": 1,
+      "seconds": 13.216,
+      "same_durations": true,
+      "same_length": true,
+      "max_error_over_peak": 0.0005419788067229092,
+      "rms_error_over_rms": 0.00024082709569483995
+    },
+    {
+      "voice": "92",
+      "text": "The morning sunlight streamed through the window, warming the quiet room.",
+      "speed": 1,
+      "pitch_shift": 0.05,
+      "pitch_range": 1.2,
+      "seconds": 4.245333333333333,
+      "same_durations": true,
+      "same_length": true,
+      "max_error_over_peak": 0.00029179800185374916,
+      "rms_error_over_rms": 0.00018328736769035459
+    },
+    {
+      "voice": "6097",
+      "text": "Hello, welcome to Little TTS.",
+      "speed": 1,
+      "pitch_shift": -0.03,
+      "pitch_range": 0.8,
+      "seconds": 2.56,
+      "same_durations": true,
+      "same_length": true,
+      "max_error_over_peak": 0.00024175905855372548,
+      "rms_error_over_rms": 7.63887437642552e-05
+    },
+    {
+      "voice": "92",
+      "text": "She had never seen the sea before, and for a long while she stood at the edge of the water without saying a word.",
+      "speed": 1,
+      "pitch_shift": 0.02,
+      "pitch_range": 1.1,
+      "seconds": 6.112,
+      "same_durations": true,
+      "same_length": true,
+      "max_error_over_peak": 0.0003952994884457439,
+      "rms_error_over_rms": 0.00021260177891235799
+    },
+    {
+      "voice": "6097",
+      "text": "After a long and difficult journey across the mountains, the travellers finally reached the small village, where they were welcomed with warm food, a place to sleep and many questions about the road behind them.",
+      "speed": 1,
+      "pitch_shift": 0,
+      "pitch_range": 1,
+      "seconds": 12.736,
+      "same_durations": true,
+      "same_length": true,
+      "max_error_over_peak": 0.0009883965831249952,
+      "rms_error_over_rms": 0.00037751326453872025
+    }
+  ],
+  "batch_invariance_max_error_over_peak": [
+    0.0003219069039914757,
+    0.00024027499603107572,
+    0.0009468205971643329
+  ],
+  "padded_frame_budget_checked": true,
+  "max_error_over_peak": 0.0010007548844441772,
+  "max_rms_error_over_rms": 0.0004512849263846874
+}

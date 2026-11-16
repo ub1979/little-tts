@@ -9,6 +9,8 @@ tags:
 - ddsp
 - onnx
 - cpu
+- cuda
+- batching
 datasets:
 - MikhailT/hifi-tts
 model-index:
@@ -76,6 +78,32 @@ Raw measurements and reproducible scripts:
 `evaluation/onnx_cpu_benchmark.json`, `evaluation/cpu_benchmark.json`,
 `scripts/benchmark_onnx.py`, `scripts/benchmark_cpu.py`.
 
+## GPU inference and real batching
+
+A separate **FP32 CUDA batching path** is included, built directly from the
+existing ONNX weights with no PyTorch or quantization. TF32 is disabled.
+The browser model is unchanged. See [GPU_BATCHING.md](GPU_BATCHING.md) for setup,
+Python examples, the bounded microbatch queue, correctness checks and benchmarks.
+
+**Measured on an RTX 5090 (32 GB), not an RTX PRO 4000:**
+
+| Workload | Measured time |
+|---|---:|
+| One batch of 32 × ~5-second clips | 70 ms p95 |
+| One batch of 16 × ~10-second clips | 75 ms p95 |
+| 64 simultaneous ~5-second requests | All completed in 157 ms |
+| 64 simultaneous ~10-second requests | All completed in 343 ms |
+
+Batch rows use 20 repeats after warm-up. Burst rows are individual controlled
+bursts with a 2 ms collection window. Timings include text processing and GPU
+transfers, but exclude model loading, WAV encoding and network time. These are
+not production SLAs or measurements on other GPU models. The GPU environment
+had no PyTorch installed. Raw results: `evaluation/gpu_batch_benchmark.json`.
+
+Use `requirements-onnx-gpu.txt`, `batched_onnx.py`, and `batch_queue.py`. The two
+graphs live under `onnx/batched/`; rebuilding them requires only the ONNX library
+in `requirements-onnx-build.txt`. Existing CPU inference remains available below.
+
 ## Inference without PyTorch
 
 ```bash
@@ -99,7 +127,7 @@ To download only the inference assets from Hugging Face:
 ```bash
 pip install 'huggingface-hub>=1.16,<2'
 hf download TuringLogic/little-tts --local-dir model \
-  --include 'onnx/*' 'phonemizer/*' 'onnx_infer.py' 'requirements-onnx.txt' \
+  --include 'onnx/model.onnx' 'onnx/model.json' 'phonemizer/*' 'onnx_infer.py' 'requirements-onnx.txt' \
   'LICENSE*' 'NOTICE' 'DATA_LICENSE.txt'
 pip install -r model/requirements-onnx.txt
 python model/onnx_infer.py --text "Hello, this runs on a CPU." --output hello.wav
@@ -175,7 +203,7 @@ Inspired by [TinyVoca](https://github.com/n4ze3m/tiny-voca) by Muhammed Nazeem (
 The weights were trained from scratch.
 Source changes include the DDSP head, training/export adjustments, real-human
 recipe, and demo. `LICENSE` / `LICENSE-CODE` cover source; `LICENSE-WEIGHTS` covers
-`inference.pt` and `onnx/model.onnx`. Licence metadata refers to the new weights.
+`inference.pt` and all model graphs under `onnx/`. Licence metadata refers to the weights.
 
 Training data: [HiFi-TTS](https://www.openslr.org/109/), Bakhturina, Lavrukhin,
 Ginsburg and Zhang (2021), CC BY 4.0; mirrored at `MikhailT/hifi-tts`, pinned revision

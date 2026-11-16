@@ -1,0 +1,6 @@
+# Install in a fresh environment; do not install onnxruntime and onnxruntime-gpu together.
+# ORT 1.32 GPU wheels use CUDA 13. The extras provide CUDA/cuDNN without PyTorch.
+onnxruntime-gpu[cuda,cudnn]==1.32.0
+numpy>=1.24,<3
+soundfile>=0.12,<1
+dizione @ git+https://github.com/n4ze3m/dizione@8cd889e4de7be6bd1dd2e6891344a0729fa14dd4

@@ -12,7 +12,7 @@ MODEL_ID = "TuringLogic/little-tts"
 MODEL_REVISION = os.environ.get("MODEL_REVISION", "main")
 MODEL_DIR = Path(os.environ["MODEL_DIR"]) if "MODEL_DIR" in os.environ else Path(
     snapshot_download(MODEL_ID, revision=MODEL_REVISION,
-                      allow_patterns=["onnx/*", "onnx_infer.py", "phonemizer/*", "samples/*"]))
+                      allow_patterns=["onnx/model.onnx", "onnx/model.json", "onnx_infer.py", "phonemizer/*", "samples/*"]))
 os.environ["DIZIONE_DATA"] = str(MODEL_DIR / "phonemizer")
 sys.path.insert(0, str(MODEL_DIR))
 from onnx_infer import Synthesizer
