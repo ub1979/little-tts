@@ -47,3 +47,5 @@ The complete training recipe and source are available on
 [GitHub](https://github.com/ub1979/little-tts). PyTorch is required for training
 and export only. Neither quantization nor PyTorch is used for this demo.
 
+
+Voice **92** is the recommended default. The example buttons use the sea story and four narrative sentences (Morning, Garden, Journey, Evening), screened for word accuracy. The browser keeps sentence context together where it fits. Speech naturalness can still vary; ASR correctness is not a human quality rating.

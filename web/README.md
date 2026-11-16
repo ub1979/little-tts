@@ -60,3 +60,5 @@ python -m http.server --directory web 8000
 Open http://localhost:8000 . The build step only copies release assets; it does
 not require PyTorch or ONNX Runtime in Python. The browser downloads Pyodide,
 NumPy and ONNX Runtime Web from pinned public CDNs.
+
+Voice **92** is the recommended default. The example buttons use the sea story and four narrative sentences (Morning, Garden, Journey, Evening), screened for word accuracy. The browser keeps sentence context together where it fits. Speech naturalness can still vary; ASR correctness is not a human quality rating.

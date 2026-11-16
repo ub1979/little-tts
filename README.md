@@ -122,6 +122,25 @@ Training loop: 12,392.9 seconds (about 3 h 27 min) on the training server,
 excluding download, preparation, alignment and evaluation. This is not a CPU
 training-time estimate. Optimizer/resume state and training audio are not included.
 
+## Recommended voice and examples
+
+Voice **92** is selected by default and recommended for this demo. Voice 6097
+remains available as an alternate. The default is the sea story, followed by
+Morning, Garden, Journey and Evening examples. These use plain narrative text.
+
+The original examples were checked with the pronunciation engine and local
+Whisper large-v3-turbo ASR. Numbers, dates, currency, and read/live pronunciations
+were correct; the transcripts recovered the intended words and the waveforms
+did not clip. The complaint is therefore not explained by a confirmed general
+text-normalization failure. Naturalness and speaker quality remain limitations.
+
+The browser now keeps short sentences together in one generation, preserving
+context within a 256-phoneme budget. Longer requests split at phrase boundaries.
+The technical greeting, numbers, question and homograph challenge buttons were
+replaced by the narrative examples. This is an inference/demo update; it does
+not change the trained weights or establish a human-rated quality improvement.
+See `evaluation/example_audit.json` for the checks.
+
 ## Speech quality
 
 The waveform head uses 64 predicted sinusoidal harmonics plus filtered noise.

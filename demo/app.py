@@ -45,8 +45,7 @@ def generate(text, voice, speed):
     return (model.sample_rate, pcm), f"{duration:.1f}s audio · {elapsed:.2f}s generation · RTF {elapsed/duration:.3f} · ONNX Runtime on CPU"
 
 
-TEXTS = ["Hello! This is a sample of my voice as I learn to speak naturally.",
-         "The morning sunlight streamed through the window, warming the quiet room."]
+TEXTS = ['She had never seen the sea before, and for a long while she stood at the edge of the water without saying a word.', 'The morning sunlight streamed through the window, warming the quiet room.', 'The garden was quiet, and the air was filled with the scent of roses.', 'The road curved gently through the hills, leading us toward the distant village.', 'As evening fell, the last light of the day faded slowly from the sky.']
 
 
 with gr.Blocks(title="Little TTS · English TTS") as demo:
@@ -56,16 +55,14 @@ with gr.Blocks(title="Little TTS · English TTS") as demo:
                 "[Source code](https://github.com/ub1979/little-tts)")
     with gr.Tab("Try the voices"):
         text = gr.Textbox(label="English text", lines=3, max_length=350,
-                          value="The morning sunlight streamed through the window, warming the quiet room.")
+                          value=TEXTS[0])
         with gr.Row():
-            voice = gr.Dropdown(choices=list(model.voices), value="92", label="Voice")
+            voice = gr.Dropdown(choices=[("Voice 92 · recommended", "92"), ("Voice 6097 · alternate", "6097")], value="92", label="Voice")
             speed = gr.Slider(0.8, 1.2, value=1, step=0.05, label="Speaking speed")
         button = gr.Button("Generate speech", variant="primary")
         audio = gr.Audio(label="Generated speech", type="numpy", format="wav")
         status = gr.Textbox(label="Generation", interactive=False)
-        gr.Examples([[TEXTS[0], "92", 1.0], [TEXTS[1], "6097", 1.0],
-                     ["Hello! You can try both voices and compare how they sound.", "92", 1.0]],
-                    inputs=[text, voice, speed])
+        gr.Examples([[example, "92", 1.0] for example in TEXTS], inputs=[text, voice, speed])
         button.click(generate, [text, voice, speed], [audio, status], concurrency_limit=1, api_name="generate")
         gr.Markdown("English only. Short sentences work best. Pronunciation and naturalness can vary, especially for names. "
                     "Requests run on shared CPU hardware and may queue. The app does not save a custom transcript log.")

@@ -7,14 +7,14 @@ const PYODIDE = "https://cdn.jsdelivr.net/pyodide/v0.26.4/full/";
 const ORT = "https://cdn.jsdelivr.net/npm/onnxruntime-web@1.20.1/dist/";
 const DATA = ["lexicon.tsv", "align.json", "g2p.json", "g2p.npz", "homographs.json"];
 
-importScripts(PYODIDE + "pyodide.js", ORT + "ort.wasm.min.js");
+importScripts(PYODIDE + "pyodide.js", ORT + "ort.wasm.min.js", "speech-plan.js");
 
 let pyodide, phonemize, session, config;
 
 const status = (text, progress) => postMessage({ type: "status", text, progress });
 
 // Bump when the files under assets/ change, so browsers fetch them again.
-const VERSION = "little-tts-104000-4";
+const VERSION = "little-tts-104000-5";
 
 // Downloaded files are kept in the browser's cache storage: a second visit starts without the network.
 async function download(url, label) {
@@ -91,32 +91,6 @@ async function loadModel() {
   status("ONNX model ready");
 }
 
-const ABBREVIATIONS = /(?:\b(?:mr|mrs|ms|dr|prof|sr|jr|st|vs|etc|no|inc|ltd|co|e\.g|i\.e|a\.m|p\.m)|\b[A-Z])\.$/i;
-
-// Sentences, without breaking after titles, initials or inside numbers.
-function sentences(text) {
-  const parts = [];
-  let current = "";
-  for (const piece of text.replace(/\s+/g, " ").trim().split(/(?<=[.!?…]["')\]]?)\s+(?=["'(\[]?[A-Z0-9])/)) {
-    current = current ? current + " " + piece : piece;
-    if (!ABBREVIATIONS.test(current)) { parts.push(current); current = ""; }
-  }
-  if (current) parts.push(current);
-  return parts.filter((part) => /[\p{L}\p{N}]/u.test(part));
-}
-
-// One utterance holds at most max_tokens phonemes; longer sentences are cut at commas, then by words.
-function fit(sentence) {
-  const result = JSON.parse(phonemize(sentence));
-  if (result.ids.length <= config.max_tokens - 12) return [result];
-  const pieces = sentence.split(/(?<=[,;:—])\s+/);
-  if (pieces.length > 1) return pieces.flatMap(fit);
-  const words = sentence.split(" ");
-  if (words.length < 2) return [];
-  const half = Math.ceil(words.length / 2);
-  return [...fit(words.slice(0, half).join(" ")), ...fit(words.slice(half).join(" "))];
-}
-
 async function synthesize(phones, voice, speed) {
   const count = phones.ids.length;
   const integers = (values) => new ort.Tensor("int64", BigInt64Array.from(values.map(BigInt)), [1, count]);
@@ -132,21 +106,18 @@ async function synthesize(phones, voice, speed) {
 async function speak({ id, text, voice, speed }) {
   if (!Number.isInteger(voice) || voice < 0 || voice >= config.voices.length) throw new Error("Choose a valid voice.");
   const started = performance.now();
-  const list = sentences(text);
+  const planStarted = performance.now();
+  const list = planSpeech(text, part => JSON.parse(phonemize(part)), Math.min(config.max_tokens - 12, 256));
   const chunks = [];
-  let phonemeTime = 0;
+  const phonemeTime = performance.now() - planStarted;
   let modelTime = 0;
   for (let index = 0; index < list.length; index++) {
-    let mark = performance.now();
-    const utterances = fit(list[index]);
-    phonemeTime += performance.now() - mark;
-    for (const phones of utterances) {
-      mark = performance.now();
-      const audio = await synthesize(phones, voice, speed);
-      modelTime += performance.now() - mark;
-      chunks.push(audio);
-      postMessage({ type: "sentence", id, index, total: list.length, phonemes: phones.text });
-    }
+    const phones = list[index];
+    const mark = performance.now();
+    const audio = await synthesize(phones, voice, speed);
+    modelTime += performance.now() - mark;
+    chunks.push(audio);
+    postMessage({ type: "sentence", id, index, total: list.length, phonemes: phones.text });
   }
   const length = chunks.reduce((sum, chunk) => sum + chunk.length, 0);
   const audio = new Float32Array(length);

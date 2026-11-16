@@ -76,11 +76,12 @@
   </header>
 
   <section class="panel">
-    <textarea maxlength="350" id="text" spellcheck="false" aria-label="Text to speak">Hello! This is Little TTS, a small text to speech model running entirely in your browser.</textarea>
+    <textarea maxlength="350" id="text" spellcheck="false" aria-label="Text to speak">She had never seen the sea before, and for a long while she stood at the edge of the water without saying a word.</textarea>
     <div class="examples" id="examples"></div>
+    <p style="font-size:13px;color:var(--muted)">Voice 92 is recommended. These examples favour narrative reading; pronunciation and naturalness can still vary.</p>
     <div class="controls">
       <label class="voice-picker">Voice <select id="voice" aria-label="Voice">
-        <option value="0">Voice 92</option><option value="1">Voice 6097</option>
+        <option value="0">Voice 92 · recommended</option><option value="1">Voice 6097 · alternate</option>
       </select></label>
       <label class="speed">Speed <input id="speed" type="range" min="0.8" max="1.2" step="0.05" value="1"><output id="speed-value">1.00</output></label>
       <button id="speak" disabled>Speak</button>
@@ -127,19 +128,34 @@
 
 <script>
 const EXAMPLES = [
-  ["Greeting", "Hello! This is Little TTS, a small text to speech model running entirely in your browser."],
-  ["Numbers", "The meeting moved to 3:30 pm on March 14th, so we have about 45 minutes left. It costs $12.99."],
-  ["Question", "Did you really think I would forget your birthday? Of course not!"],
-  ["Story", "She had never seen the sea before, and for a long while she stood at the edge of the water without saying a word."],
-  ["Homographs", "I read the book you read yesterday. They live near the live music hall."],
+  [
+    "Story",
+    "She had never seen the sea before, and for a long while she stood at the edge of the water without saying a word."
+  ],
+  [
+    "Morning",
+    "The morning sunlight streamed through the window, warming the quiet room."
+  ],
+  [
+    "Garden",
+    "The garden was quiet, and the air was filled with the scent of roses."
+  ],
+  [
+    "Journey",
+    "The road curved gently through the hills, leading us toward the distant village."
+  ],
+  [
+    "Evening",
+    "As evening fell, the last light of the day faded slowly from the sky."
+  ]
 ];
 const $ = (id) => document.getElementById(id);
-const worker = new Worker("worker.js");
+const worker = new Worker("worker.js?v=6");
 let ready = false, busy = false, request = 0, url = null, loadFailed = false;
 for (const [label, text] of EXAMPLES) {
   const button = document.createElement("button");
   button.textContent = label;
-  button.onclick = () => { $("text").value = text; $("text").focus(); };
+  button.onclick = () => { $("text").value = text; $("text").focus(); update(); };
   $("examples").append(button);
 }
 $("speed").oninput = () => { $("speed-value").textContent = Number($("speed").value).toFixed(2); };
@@ -171,12 +187,12 @@ let phonemes = [];
 worker.onmessage = ({ data }) => {
   if (data.type === "status" && !loadFailed) setStatus(data.text, data.progress);
   else if (data.type === "ready") {
-    $("voice").replaceChildren(...data.voices.map((name, i) => new Option("Voice " + name, String(i))));
+    $("voice").replaceChildren(...data.voices.map((name, i) => new Option("Voice " + name + (name === "92" ? " · recommended" : " · alternate"), String(i))));
     ready = true; setStatus("Ready. Choose a voice, then press Speak."); update();
   }
   else if (data.type === "sentence" && data.id === request) {
     phonemes.push(data.phonemes);
-    setStatus(`Speaking sentence ${data.index + 1} of ${data.total}`, (data.index + 1) / data.total);
+    setStatus(`Generating passage ${data.index + 1} of ${data.total}`, (data.index + 1) / data.total);
   } else if (data.type === "done" && data.id === request) {
     busy = false; update();
     const seconds = data.audio.length / data.sampleRate;
