@@ -1,0 +1,172 @@
+{
+  "measured_at": "2026-11-16T15:16:50.244989+00:00",
+  "cpu": "Apple M4 Pro",
+  "platform": "macOS-15.1-arm64-arm-64bit",
+  "python": "3.12.2",
+  "torch": "2.15.0",
+  "threads": 2,
+  "interop_threads": 1,
+  "device": "cpu",
+  "precision": "float32",
+  "model_load_seconds": 0.04716691700741649,
+  "first_synthesis_seconds": 0.1295595420524478,
+  "import_load_and_first_synthesis_seconds": 0.9435596669791266,
+  "peak_process_rss_mib": 680.140625,
+  "utterances": 18,
+  "total_synthesis_seconds": 1.060369294078555,
+  "total_audio_seconds": 97.472,
+  "weighted_real_time_factor": 0.010878706644765215,
+  "times_faster_than_real_time": 91.92269197563071,
+  "median_utterance_rtf": 0.010941023440375204,
+  "min_utterance_rtf": 0.009363134310680784,
+  "max_utterance_rtf": 0.011811312254403131,
+  "records": [
+    {
+      "voice": "92",
+      "text": "Hello! This is a sample of my voice as I learn to speak naturally.",
+      "repeat": 0,
+      "synthesis_seconds": 0.05047795898281038,
+      "audio_seconds": 4.597333333333333,
+      "real_time_factor": 0.0109798344655185
+    },
+    {
+      "voice": "92",
+      "text": "Hello! This is a sample of my voice as I learn to speak naturally.",
+      "repeat": 1,
+      "synthesis_seconds": 0.051259458996355534,
+      "audio_seconds": 4.597333333333333,
+      "real_time_factor": 0.01114982431765274
+    },
+    {
+      "voice": "92",
+      "text": "Hello! This is a sample of my voice as I learn to speak naturally.",
+      "repeat": 2,
+      "synthesis_seconds": 0.053814749990124255,
+      "audio_seconds": 4.597333333333333,
+      "real_time_factor": 0.01170564457441798
+    },
+    {
+      "voice": "92",
+      "text": "The morning sunlight streamed through the window, warming the quiet room.",
+      "repeat": 0,
+      "synthesis_seconds": 0.046499625022988766,
+      "audio_seconds": 4.245333333333333,
+      "real_time_factor": 0.010953115190716576
+    },
+    {
+      "voice": "92",
+      "text": "The morning sunlight streamed through the window, warming the quiet room.",
+      "repeat": 1,
+      "synthesis_seconds": 0.04639695800142363,
+      "audio_seconds": 4.245333333333333,
+      "real_time_factor": 0.010928931690033833
+    },
+    {
+      "voice": "92",
+      "text": "The morning sunlight streamed through the window, warming the quiet room.",
+      "repeat": 2,
+      "synthesis_seconds": 0.0457292910432443,
+      "audio_seconds": 4.245333333333333,
+      "real_time_factor": 0.010771660892724005
+    },
+    {
+      "voice": "92",
+      "text": "At half past seven, the station was already busy. Travelers checked their tickets while a gentle rain fell outside.",
+      "repeat": 0,
+      "synthesis_seconds": 0.08037991699529812,
+      "audio_seconds": 6.8053333333333335,
+      "real_time_factor": 0.011811312254403131
+    },
+    {
+      "voice": "92",
+      "text": "At half past seven, the station was already busy. Travelers checked their tickets while a gentle rain fell outside.",
+      "repeat": 1,
+      "synthesis_seconds": 0.06799779203720391,
+      "audio_seconds": 6.8053333333333335,
+      "real_time_factor": 0.009991838563460606
+    },
+    {
+      "voice": "92",
+      "text": "At half past seven, the station was already busy. Travelers checked their tickets while a gentle rain fell outside.",
+      "repeat": 2,
+      "synthesis_seconds": 0.06371925002895296,
+      "audio_seconds": 6.8053333333333335,
+      "real_time_factor": 0.009363134310680784
+    },
+    {
+      "voice": "6097",
+      "text": "Hello! This is a sample of my voice as I learn to speak naturally.",
+      "repeat": 0,
+      "synthesis_seconds": 0.05356741702416912,
+      "audio_seconds": 4.832,
+      "real_time_factor": 0.011085972066260165
+    },
+    {
+      "voice": "6097",
+      "text": "Hello! This is a sample of my voice as I learn to speak naturally.",
+      "repeat": 1,
+      "synthesis_seconds": 0.05055712501052767,
+      "audio_seconds": 4.832,
+      "real_time_factor": 0.010462981169397282
+    },
+    {
+      "voice": "6097",
+      "text": "Hello! This is a sample of my voice as I learn to speak naturally.",
+      "repeat": 2,
+      "synthesis_seconds": 0.05081070796586573,
+      "audio_seconds": 4.832,
+      "real_time_factor": 0.010515461085651021
+    },
+    {
+      "voice": "6097",
+      "text": "The morning sunlight streamed through the window, warming the quiet room.",
+      "repeat": 0,
+      "synthesis_seconds": 0.04812520794803277,
+      "audio_seconds": 4.608,
+      "real_time_factor": 0.010443838530389056
+    },
+    {
+      "voice": "6097",
+      "text": "The morning sunlight streamed through the window, warming the quiet room.",
+      "repeat": 1,
+      "synthesis_seconds": 0.048312459024600685,
+      "audio_seconds": 4.608,
+      "real_time_factor": 0.01048447461471369
+    },
+    {
+      "voice": "6097",
+      "text": "The morning sunlight streamed through the window, warming the quiet room.",
+      "repeat": 2,
+      "synthesis_seconds": 0.04745329200522974,
+      "audio_seconds": 4.608,
+      "real_time_factor": 0.010298023438634927
+    },
+    {
+      "voice": "6097",
+      "text": "At half past seven, the station was already busy. Travelers checked their tickets while a gentle rain fell outside.",
+      "repeat": 0,
+      "synthesis_seconds": 0.08547537500271574,
+      "audio_seconds": 7.402666666666667,
+      "real_time_factor": 0.011546565427240058
+    },
+    {
+      "voice": "6097",
+      "text": "At half past seven, the station was already busy. Travelers checked their tickets while a gentle rain fell outside.",
+      "repeat": 1,
+      "synthesis_seconds": 0.0826734589645639,
+      "audio_seconds": 7.402666666666667,
+      "real_time_factor": 0.011168064521509894
+    },
+    {
+      "voice": "6097",
+      "text": "At half past seven, the station was already busy. Travelers checked their tickets while a gentle rain fell outside.",
+      "repeat": 2,
+      "synthesis_seconds": 0.08711925003444776,
+      "audio_seconds": 7.402666666666667,
+      "real_time_factor": 0.011768630678284549
+    }
+  ],
+  "scope": "Includes phonemization and waveform synthesis; excludes file encoding, Gradio, queue/network time. Peak RSS includes Python, PyTorch, checkpoint loading, pronunciation assets, and synthesis.",
+  "hardware_ram_gib": 24,
+  "hardware_cpu_cores": 14
+}

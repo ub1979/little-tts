@@ -1,0 +1,26 @@
+{
+  "host": "https://turinglogic-little-tts.static.hf.space",
+  "browser": "Codex in-app browser, Apple M4 Pro",
+  "runtime": "ONNX Runtime Web 1.20.1, WASM, one thread",
+  "precision": "FP32, no quantization",
+  "test_text": "Hello, welcome to Little TTS. This is a voice test.",
+  "voices": [
+    {
+      "voice": "92",
+      "displayed_audio_seconds": 3.6,
+      "displayed_generation_seconds": 0.19,
+      "displayed_rtfx": 19.3,
+      "displayed_rtf": 0.052
+    },
+    {
+      "voice": "6097",
+      "displayed_audio_seconds": 4.0,
+      "displayed_generation_seconds": 0.17,
+      "displayed_rtfx": 23.5,
+      "displayed_rtf": 0.043
+    }
+  ],
+  "generated_audio_blob": true,
+  "note": "Live functional smoke test, not a general browser speed or memory benchmark. Timing values are rounded UI readings.",
+  "two_voice_dropdown_passed": true
+}

@@ -1,0 +1,16 @@
+{
+  "dataset": "MikhailT/hifi-tts",
+  "revision": "f0a934ddf4e8da0fc6c53fb42fda2c9ac8ed93df",
+  "subset": "clean",
+  "recording_type": "real human",
+  "original_sample_rate": 44100,
+  "sample_rate": 24000,
+  "license": "CC BY 4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "initialize_from": null,
+  "splits": {
+    "train": 38656,
+    "validation": 88,
+    "test": 179
+  }
+}

@@ -1,0 +1,17 @@
+Little TTS release, 2026-11-16 — published by TuringLogic / ub1979.
+Original source portions by Muhammed Nazeem, used under Apache-2.0.
+upstream source revision 28e0722c6ad040d74a1f6e63d77621272477a71f, Apache-2.0.
+Modifications: DDSP harmonic-plus-noise synthesis head, DDSP training/export,
+real-human HiFi-TTS recipe and evaluation, optional Urdu frontend integration,
+and a public English demo.
+Browser UI and worker are adapted from the upstream Apache-2.0 web demo.
+Bundled dizione Python source retains its Apache-2.0 licence at
+web/assets/LICENSE-DIZIONE. This English release contains no Urdu voice weights.
+The original upstream source and copyright notices are retained.
+Source code: Apache-2.0 (LICENSE and LICENSE-CODE).
+New inference.pt and onnx/model.onnx weights: CC BY-NC 4.0 (LICENSE-WEIGHTS), noncommercial use only.
+Model weights were trained from scratch, without upstream TTS weight initialization.
+Training data has separate CC BY 4.0 terms; see DATA_LICENSE.txt. The weights'
+noncommercial restriction does not relicense the dataset or upstream source.
+Pronunciation assets retain phonemizer/LICENSE.cmudict and LICENSE.homograph-data.
+No endorsement by upstream authors, dataset authors, or speakers is implied.

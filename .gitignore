@@ -1,0 +1,15 @@
+__pycache__/
+*.pyc
+*.egg-info/
+.venv/
+.env
+.DS_Store
+human_data/
+runs/
+ops/
+logs/
+*.lock
+
+web/assets/model.onnx
+web/assets/config.json
+web/assets/phonemizer/

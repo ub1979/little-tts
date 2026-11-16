@@ -1,0 +1,30 @@
+Training data: Hi-Fi Multi-Speaker English TTS Dataset (Hi-Fi TTS), clean subset.
+Creators: Evelina Bakhturina, Vitaly Lavrukhin, Boris Ginsburg, Yang Zhang (2021).
+Original dataset and license declaration: https://www.openslr.org/109/
+Paper: https://arxiv.org/abs/2104.01497
+Hugging Face mirror: https://huggingface.co/datasets/MikhailT/hifi-tts
+Pinned mirror revision: f0a934ddf4e8da0fc6c53fb42fda2c9ac8ed93df
+
+License: Creative Commons Attribution 4.0 International (CC BY 4.0).
+License URL: https://creativecommons.org/licenses/by/4.0/
+Legal code: https://creativecommons.org/licenses/by/4.0/legalcode.en
+The license permits copying and adaptation, including commercial use, subject
+to its terms. Retain appropriate credit, the license link, and modification
+notices when sharing licensed data or adaptations. No endorsement is implied.
+
+The corpus is derived from real-human LibriVox audiobook recordings and
+Project Gutenberg texts. Recording paths retained in each manifest provide
+source-book and speaker provenance. Only the clean subset is selected.
+
+Modifications in this project: selection of speakers 92 and 6097, approximately
+15 training hours per speaker; filtering by duration and signal checks;
+resampling from 44,100 Hz to 24,000 Hz with soxr VHQ; attenuation of resampling
+peaks above 0.99 to prevent PCM clipping; PCM encoding; acoustic
+feature extraction; phoneme forced alignment and alignment-quality filtering.
+The original development and test splits are retained, with duplicate texts
+removed across splits. The TTS model is initialized from scratch.
+
+The pretrained wav2vec2 alignment model is used for offline annotation only;
+it does not generate training audio or initialize the TTS model.
+The dizione phonemizer uses CMUdict-based lexical pronunciation tables, not
+synthetic speech. Their original license notices are retained in phonemizer/.

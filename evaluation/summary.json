@@ -1,0 +1,129 @@
+{
+  "tag": "human-ddsp-final-104000",
+  "step": 104000,
+  "inference_parameters": 4648907,
+  "asr_model": "faster-whisper small.en",
+  "note": "generated audio is free-running: text in, predicted durations/pitch/voicing/energy",
+  "settings": {
+    "speed": 1.0,
+    "pitch_range": 1.0,
+    "seed": 0
+  },
+  "summary": {
+    "novel": {
+      "all": {
+        "samples": 16,
+        "generated_wer": 0.0167,
+        "reference_wer": null,
+        "duration_ratio": null,
+        "pause_ratio": null,
+        "mel_dtw": null,
+        "generated_pitch_std_semitones": 2.5144,
+        "reference_pitch_std_semitones": null,
+        "generated_voiced_fraction": 0.6872,
+        "reference_voiced_fraction": null
+      },
+      "92": {
+        "samples": 8,
+        "generated_wer": 0.0104,
+        "reference_wer": null,
+        "duration_ratio": null,
+        "pause_ratio": null,
+        "mel_dtw": null,
+        "generated_pitch_std_semitones": 2.495,
+        "reference_pitch_std_semitones": null,
+        "generated_voiced_fraction": 0.6718,
+        "reference_voiced_fraction": null
+      },
+      "6097": {
+        "samples": 8,
+        "generated_wer": 0.0229,
+        "reference_wer": null,
+        "duration_ratio": null,
+        "pause_ratio": null,
+        "mel_dtw": null,
+        "generated_pitch_std_semitones": 2.5337,
+        "reference_pitch_std_semitones": null,
+        "generated_voiced_fraction": 0.7026,
+        "reference_voiced_fraction": null
+      }
+    },
+    "test": {
+      "all": {
+        "samples": 32,
+        "generated_wer": 0.0733,
+        "reference_wer": 0.071,
+        "duration_ratio": 1.0082,
+        "pause_ratio": 1.0942,
+        "mel_dtw": 0.7575,
+        "generated_pitch_std_semitones": 2.7075,
+        "reference_pitch_std_semitones": 3.0875,
+        "generated_voiced_fraction": 0.6686,
+        "reference_voiced_fraction": 0.6217
+      },
+      "92": {
+        "samples": 16,
+        "generated_wer": 0.0179,
+        "reference_wer": 0.0016,
+        "duration_ratio": 0.9748,
+        "pause_ratio": 1.2083,
+        "mel_dtw": 0.7805,
+        "generated_pitch_std_semitones": 2.52,
+        "reference_pitch_std_semitones": 2.4525,
+        "generated_voiced_fraction": 0.6726,
+        "reference_voiced_fraction": 0.6353
+      },
+      "6097": {
+        "samples": 16,
+        "generated_wer": 0.1288,
+        "reference_wer": 0.1404,
+        "duration_ratio": 1.0417,
+        "pause_ratio": 0.9802,
+        "mel_dtw": 0.7344,
+        "generated_pitch_std_semitones": 2.895,
+        "reference_pitch_std_semitones": 3.7225,
+        "generated_voiced_fraction": 0.6646,
+        "reference_voiced_fraction": 0.6081
+      }
+    },
+    "validation": {
+      "all": {
+        "samples": 32,
+        "generated_wer": 0.1345,
+        "reference_wer": 0.0485,
+        "duration_ratio": 0.9928,
+        "pause_ratio": 0.9087,
+        "mel_dtw": 0.786,
+        "generated_pitch_std_semitones": 2.7062,
+        "reference_pitch_std_semitones": 2.9231,
+        "generated_voiced_fraction": 0.6795,
+        "reference_voiced_fraction": 0.6123
+      },
+      "92": {
+        "samples": 16,
+        "generated_wer": 0.097,
+        "reference_wer": 0.097,
+        "duration_ratio": 0.9759,
+        "pause_ratio": 0.8582,
+        "mel_dtw": 0.755,
+        "generated_pitch_std_semitones": 2.5481,
+        "reference_pitch_std_semitones": 2.5494,
+        "generated_voiced_fraction": 0.6724,
+        "reference_voiced_fraction": 0.5961
+      },
+      "6097": {
+        "samples": 16,
+        "generated_wer": 0.1721,
+        "reference_wer": 0.0,
+        "duration_ratio": 1.0096,
+        "pause_ratio": 0.9592,
+        "mel_dtw": 0.817,
+        "generated_pitch_std_semitones": 2.8644,
+        "reference_pitch_std_semitones": 3.2969,
+        "generated_voiced_fraction": 0.6866,
+        "reference_voiced_fraction": 0.6285
+      }
+    }
+  },
+  "frontend_token_mismatches": []
+}

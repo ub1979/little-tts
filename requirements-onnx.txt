@@ -1,0 +1,4 @@
+numpy>=1.24,<3
+onnxruntime==1.32.0
+soundfile>=0.12,<1
+dizione @ git+https://github.com/n4ze3m/dizione@8cd889e4de7be6bd1dd2e6891344a0729fa14dd4
