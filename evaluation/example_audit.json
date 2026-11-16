@@ -338,5 +338,38 @@
       "transcript": "After a long day, he returned home and sat quietly beside the fire.",
       "word_accuracy_note": "ASR spelling/number/punctuation conventions may differ from the input."
     }
-  ]
+  ],
+  "live_browser_verification": [
+    {
+      "name": "Story",
+      "text": "She had never seen the sea before, and for a long while she stood at the edge of the water without saying a word.",
+      "transcript": "She had never seen the sea before, and for a long while she stood at the edge of the water without saying a word.",
+      "words_match": true
+    },
+    {
+      "name": "Morning",
+      "text": "The morning sunlight streamed through the window, warming the quiet room.",
+      "transcript": "The morning sunlight streamed through the window, warming the quiet room.",
+      "words_match": true
+    },
+    {
+      "name": "Garden",
+      "text": "The garden was quiet, and the air was filled with the scent of roses.",
+      "transcript": "The garden was quiet, and the air was filled with the scent of roses.",
+      "words_match": true
+    },
+    {
+      "name": "Journey",
+      "text": "The road curved gently through the hills, leading us toward the distant village.",
+      "transcript": "The road curved gently through the hills, leading us toward the distant village.",
+      "words_match": true
+    },
+    {
+      "name": "Evening",
+      "text": "As evening fell, the last light of the day faded slowly from the sky.",
+      "transcript": "As evening fell, the last light of the day faded slowly from the sky.",
+      "words_match": true
+    }
+  ],
+  "live_browser_note": "All five published narrative examples were generated in the browser with voice 92. ASR recovered all words after case/punctuation normalization. This is not a human naturalness score."
 }
